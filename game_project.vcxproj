@@ -155,21 +155,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="game_project.cpp" />
-    <ClCompile Include="GroupOfEnemies.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerGUI.cpp" />
-    <ClCompile Include="PowerUp.cpp" />
-    <ClCompile Include="ScoreText.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\GroupOfEnemies.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\PlayerGUI.cpp" />
+    <ClCompile Include="src\PowerUp.cpp" />
+    <ClCompile Include="src\ScoreText.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="GroupOfEnemies.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerGUI.h" />
-    <ClInclude Include="PowerUp.h" />
-    <ClInclude Include="ScoreText.h" />
+    <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\GroupOfEnemies.h" />
+    <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\PlayerGUI.h" />
+    <ClInclude Include="include\PowerUp.h" />
+    <ClInclude Include="include\ScoreText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
