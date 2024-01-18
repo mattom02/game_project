@@ -18,3 +18,5 @@ The player earns points for each defeated enemy. The points are displayed on the
 The goal of the game is to survive as long as possible, score points by eliminating enemies, and strategically use power-ups and sprinting abilities.
 
 "Sprint & Shoot" offers dynamic gameplay, requiring quick reflexes and a strategic approach to resource management. Will you be able to achieve the highest score? Play and test your skills!
+
+In order to play check for the latest release and download it.
