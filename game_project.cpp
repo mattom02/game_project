@@ -1,11 +1,11 @@
 ﻿
 #include "SFML/Window.hpp"
-#include "Player.h"
-#include "PlayerGUI.h"
-#include "Enemy.h"
-#include "GroupOfEnemies.h"
-#include "ScoreText.h"
-#include "PowerUp.h"
+#include "include/Player.h"
+#include "include/PlayerGUI.h"
+#include "include/Enemy.h"
+#include "include/GroupOfEnemies.h"
+#include "include/ScoreText.h"
+#include "include/PowerUp.h"
 
 int main() {
     Player player(700, 400);
