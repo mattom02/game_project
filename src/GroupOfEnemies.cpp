@@ -20,16 +20,16 @@ void GroupOfEnemies::spawnEnemy(float X, float Y) {
 
 void GroupOfEnemies::moveEnemies(const Player& player) {
 	for (auto& i : enemies) {
-		if (i.getPosition().x < player.getPosition().x) {
+		if (i.getPosition().x < player.getPosition().x - 1) {
 			i.move(i.getVelocity(), 0);
 		}
-		else if (i.getPosition().x > player.getPosition().x) {
+		else if (i.getPosition().x > player.getPosition().x + 1) {
 			i.move(-1 * i.getVelocity(), 0);
 		}
-		if (i.getPosition().y < player.getPosition().y) {
+		if (i.getPosition().y < player.getPosition().y - 1) {
 			i.move(0, i.getVelocity());
 		}
-		else if (i.getPosition().y > player.getPosition().y) {
+		else if (i.getPosition().y > player.getPosition().y + 1) {
 			i.move(0, -1 * i.getVelocity());
 		}
 		i.updateHitbox();
