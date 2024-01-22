@@ -172,10 +172,6 @@
     <ClInclude Include="include\PlayerGUI.h" />
     <ClInclude Include="include\PowerUp.h" />
     <ClInclude Include="include\ScoreText.h" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="game_project.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
