@@ -38,6 +38,12 @@ MainMenu::MainMenu(float width, float height, int size) {
 	selectableBarsPlay[3].setFillColor(sf::Color::White);
 	selectableBarsPlay[3].setPosition(width / 2, (height / 2) + (6 * size));
 	selectableBarsPlay[3].setString("Back");
+
+	title.setFont(font);
+	title.setCharacterSize(3*size);
+	title.setFillColor(sf::Color::White);
+	title.setPosition(50, 150);
+	title.setString("Sprint and shoot");
 }
 
 void MainMenu::unselectPlay() { 
@@ -82,6 +88,7 @@ void MainMenu::moveDownPlay() {
 }
 
 void MainMenu::draw(sf::RenderTarget& target, sf::RenderStates state) const {
+	target.draw(title, state);
 	if (selectedIndexMain == 0 and isPlaySelected) {
 		for (auto& i : selectableBarsPlay) {
 			target.draw(i, state);

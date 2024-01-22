@@ -26,6 +26,7 @@ public:
 private:
 	sf::Text selectableBarsMain[2];
 	sf::Text selectableBarsPlay[4];
+	sf::Text title;
 
 	sf::Font font;
 
