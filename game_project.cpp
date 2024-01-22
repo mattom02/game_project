@@ -7,6 +7,7 @@
 #include "include/ScoreText.h"
 #include "include/PowerUp.h"
 #include "include/MainMenu.h"
+#include "include/DeathScreen.h"
 
 enum DIFFICULTY {
     EASY,
@@ -14,7 +15,7 @@ enum DIFFICULTY {
     HARD
 };
 
-void PlayGame(sf::RenderWindow& window, DIFFICULTY difficulty ) {
+void PlayGame(sf::RenderWindow& window, sf::Event& event,DIFFICULTY difficulty ) {
     Player player(700, 400);
     StaminaBar staminaBar(300, 100);
     GroupOfEnemies enemies;
@@ -32,7 +33,13 @@ void PlayGame(sf::RenderWindow& window, DIFFICULTY difficulty ) {
     ScoreText score(687, 70, 50);
     PowerUp powerUp(1600, 1000);
     PowerUpBar powerUpBar(1100, 100);
-    while (true) {
+    while (window.isOpen()) {
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+                break;
+            }
+        }
         window.clear(sf::Color::Black);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
@@ -75,11 +82,38 @@ void PlayGame(sf::RenderWindow& window, DIFFICULTY difficulty ) {
         if (player.checkIfDied(enemies)) {
             break;
         }
+        window.draw(powerUp);
         window.draw(enemies);
         window.draw(player);
         window.draw(staminaBar);
         window.draw(score);
-        window.draw(powerUp);
+        window.display();
+    }
+}
+
+void DisplayDeathScreen(sf::RenderWindow& window) {
+    DeathScreen deathScreen(window.getSize().x, window.getSize().y, 50);
+    sf::Event eventDeath;
+    bool exit = true;
+    while (exit) {
+        while (window.pollEvent(eventDeath)) {
+            if (eventDeath.type == sf::Event::Closed) {
+                exit = false;
+                window.close();
+                break;
+            }
+            if (eventDeath.type == sf::Event::KeyReleased && eventDeath.key.code == sf::Keyboard::Enter) {
+                exit = false;
+                break;
+            }
+            else if (eventDeath.type == sf::Event::KeyReleased && eventDeath.key.code == sf::Keyboard::Escape) {
+                exit = false;
+                window.close();
+                break;
+            }
+        }
+        window.clear();
+        window.draw(deathScreen);
         window.display();
     }
 }
@@ -89,6 +123,7 @@ int main() {
     MainMenu mainMenu(window.getSize().x, window.getSize().y, 50);
     window.setFramerateLimit(60);
     sf::Event event;
+    sf::Event eventDeath;
 
     while (window.isOpen()) {
         window.clear(sf::Color::Black);
@@ -136,20 +171,32 @@ int main() {
                     switch (mainMenu.getSelectedIndexPlay()) {
                     case 0:
                         if (event.key.code == sf::Keyboard::Enter) {
-                            PlayGame(window, DIFFICULTY::EASY);
+                            PlayGame(window, event, DIFFICULTY::EASY);
                             mainMenu.unselectPlay();
+                            if (!window.isOpen()) {
+                                break;
+                            }
+                            DisplayDeathScreen(window);
                         }
                         break;
                     case 1:
                         if (event.key.code == sf::Keyboard::Enter) {
-                            PlayGame(window, DIFFICULTY::MEDIUM);
+                            PlayGame(window, event, DIFFICULTY::MEDIUM);
                             mainMenu.unselectPlay();
+                            if (!window.isOpen()) {
+                                break;
+                            }
+                            DisplayDeathScreen(window);
                         }
                         break;
                     case 2:
                         if (event.key.code == sf::Keyboard::Enter) {
-                            PlayGame(window, DIFFICULTY::HARD);
+                            PlayGame(window, event, DIFFICULTY::HARD);
                             mainMenu.unselectPlay();
+                            if (!window.isOpen()) {
+                                break;
+                            }
+                            DisplayDeathScreen(window);
                         }
                         break;
                     case 3:
@@ -157,7 +204,7 @@ int main() {
                             mainMenu.unselectPlay();
                         }
                         break;
-                    }
+                    } 
                 }
             }
         }

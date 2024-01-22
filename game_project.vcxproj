@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="game_project.cpp" />
+    <ClCompile Include="src\DeathScreen.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\GroupOfEnemies.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="src\ScoreText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DeathScreen.h" />
     <ClInclude Include="include\Enemy.h" />
     <ClInclude Include="include\GroupOfEnemies.h" />
     <ClInclude Include="include\MainMenu.h" />
