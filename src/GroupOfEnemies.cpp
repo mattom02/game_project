@@ -1,21 +1,21 @@
 #include "../include/GroupOfEnemies.h"
 
 void GroupOfEnemies::spawnEnemy() {
-	if (enemies.size() < 6 && spawnDelay == 75) {
+	if (enemies.size() < 6 && spawnDelayTimer == spawnDelay) {
 		Enemy enemy;
 		enemies.push_back(enemy);
-		spawnDelay = 0;
+		spawnDelayTimer = 0;
 	}
-	spawnDelay++;
+	spawnDelayTimer++;
 }
 
 void GroupOfEnemies::spawnEnemy(float X, float Y) {
-	if (enemies.size() < 6 && spawnDelay == 75) {
+	if (enemies.size() < 6 && spawnDelayTimer == spawnDelay) {
 		Enemy enemy(X, Y);
 		enemies.push_back(enemy);
-		spawnDelay = 0;
+		spawnDelayTimer = 0;
 	}
-	spawnDelay++;
+	spawnDelayTimer;
 }
 
 void GroupOfEnemies::moveEnemies(const Player& player) {

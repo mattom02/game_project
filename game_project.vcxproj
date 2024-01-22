@@ -158,6 +158,7 @@
     <ClCompile Include="game_project.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\GroupOfEnemies.cpp" />
+    <ClCompile Include="src\MainMenu.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\PlayerGUI.cpp" />
     <ClCompile Include="src\PowerUp.cpp" />
@@ -166,10 +167,15 @@
   <ItemGroup>
     <ClInclude Include="include\Enemy.h" />
     <ClInclude Include="include\GroupOfEnemies.h" />
+    <ClInclude Include="include\MainMenu.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\PlayerGUI.h" />
     <ClInclude Include="include\PowerUp.h" />
     <ClInclude Include="include\ScoreText.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game_project.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
